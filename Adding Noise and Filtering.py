@@ -13,8 +13,44 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False  # 负号显示
 
 # 加载 WAV 文件并提取原始采样率
-audio_filename = 'your_audio.wav'
+audio_filename = 'wav\\your_audio.wav'
 y, sr = librosa.load(audio_filename, sr=None) 
+
+# n_steps 控制音高变化的半音数，正值升高音高
+n_steps_pitch_shift = 6  
+y_pitch_shifted = librosa.effects.pitch_shift(y=y, sr=sr, n_steps=n_steps_pitch_shift)
+
+# 保存变声后的音频
+pitch_shifted_filename = f'.\\wav\\audio_pitch_shifted_{n_steps_pitch_shift}steps.wav'
+wavfile.write(pitch_shifted_filename, sr, (y_pitch_shifted * 32767).astype(np.int16))
+print(f"已保存变声后的音频到 {pitch_shifted_filename}")
+
+# 可视化变声后的波形和频谱
+plt.figure(figsize=(12, 8))
+plt.subplot(2, 1, 1)
+librosa.display.waveshow(y_pitch_shifted, sr=sr)
+plt.title(f'变声后 (音高提升 {n_steps_pitch_shift} 半音) 的时域波形')
+plt.xlabel('时间 (秒)')
+plt.ylabel('幅度')
+plt.grid(True)
+
+N_pitch_shifted = len(y_pitch_shifted)
+Y_pitch_shifted = np.fft.fft(y_pitch_shifted)
+freq_pitch_shifted = np.fft.fftfreq(N_pitch_shifted, d=1/sr)
+positive_freq_indices_ps = np.where(freq_pitch_shifted >= 0)
+positive_frequencies_ps = freq_pitch_shifted[positive_freq_indices_ps]
+positive_Y_magnitude_ps = np.abs(Y_pitch_shifted[positive_freq_indices_ps])
+
+plt.subplot(2, 1, 2)
+plt.plot(positive_frequencies_ps, positive_Y_magnitude_ps)
+plt.title(f'变声后 (音高提升 {n_steps_pitch_shift} 半音) 的频谱图')
+plt.xlabel('频率 (Hz)')
+plt.ylabel('幅度')
+plt.xlim(0, sr/2)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+# --- 语音变声结束 ---
 
 # 生成高斯白噪声
 noise_power = 0.005  # 噪声功率，可以调整

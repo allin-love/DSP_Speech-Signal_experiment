@@ -10,7 +10,7 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False  # 负号显示
 
 # 加载 WAV 文件
-audio_filename = 'your_audio.wav' #正常录音完成后是.m4a文件，用这个网站可以转https://convertio.co/zh/m4a-wav/
+audio_filename = 'wav\\your_audio.wav' #正常录音完成后是.m4a文件，用这个网站可以转https://convertio.co/zh/m4a-wav/
 
 y, sr = librosa.load(audio_filename, sr=None) # sr=None 保留原始采样率
 print(f"音频文件 '{audio_filename}' 加载成功，采样率: {sr} Hz，时长: {len(y)/sr:.2f} 秒")
