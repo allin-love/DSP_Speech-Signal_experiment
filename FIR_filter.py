@@ -8,7 +8,7 @@ import numpy as np
 plt.rcParams['font.sans-serif'] = ['SimHei']  
 plt.rcParams['axes.unicode_minus'] = False  # 负号显示
 # 加载 WAV 文件并提取原始采样率
-audio_filename = 'zrk_audio.wav' 
+audio_filename = 'your_audio.wav'
 y, sr = librosa.load(audio_filename, sr=None) 
 
 def design_fir_filter(sr, filter_type_fir='lowpass', numtaps_fir=101, cutoff_freq_fir=3000, lowcut_fir=500, highcut_fir=2500):
