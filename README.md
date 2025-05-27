@@ -8,7 +8,7 @@
 *   `IIR_filter.py`: 实现 IIR 滤波器设计（巴特沃斯：低通、高通、带通、带阻）并可视化其频率响应。可以独立运行以查看滤波器特性。
 *   `FIR_filter.py`: 实现 FIR 滤波器设计（汉明窗：低通、高通、带通、带阻）并可视化其频率响应。可以独立运行以查看滤波器特性。
 *   `Adding Noise and Filtering.py`: 演示向音频信号添加高斯白噪声，然后使用 [`IIR_filter.design_iir_filter`](IIR_filter.py) 和 [`FIR_filter.design_fir_filter`](FIR_filter.py) 设计的 IIR 和 FIR 滤波器对其进行滤波。可视化噪声信号和滤波后的信号（波形和 FFT）。
-*   `zrk_audio.wav`: 用于实验的主要示例音频文件。
+*   `your_audio.wav`: 用于实验的主要示例音频文件。
 *   `Experiment Log.md`: 一个 Markdown 文件，记录了实验结果和相关图表。
 *   `wav/`: 目录，用于保存处理后的音频文件（例如，由 `Adding Noise and Filtering.py` 生成的 `audio_noisy.wav`）。
 *   `fig/`: 目录，通常包含从实验中保存的绘图（如 `Experiment Log.md` 中引用的图像所示）。
