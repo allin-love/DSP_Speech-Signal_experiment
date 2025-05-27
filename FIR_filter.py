@@ -65,9 +65,6 @@ def design_fir_filter(sr, filter_type_fir='lowpass', numtaps_fir=101, cutoff_fre
 
 if __name__ == "__main__":
     # 调用test
-    # 加载 WAV 文件并提取原始采样率 (如果 sr 不是全局变量，需要在这里重新加载或传递)
-    # audio_filename = 'zrk_audio.wav' 
-    # y_test, sr_test = librosa.load(audio_filename, sr=None) 
 
     filter_type_fir = 'lowpass'
     numtaps_fir = 101

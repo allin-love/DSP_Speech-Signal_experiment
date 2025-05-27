@@ -48,7 +48,7 @@ pip install librosa numpy matplotlib scipy
 ## 如何运行
 
 1.  **加载和基础音频分析 ([`load.py`](load.py))**:
-    要可视化 `zrk_audio.wav` 的波形、FFT 和语谱图：
+    要可视化 `your_audio.wav` 的波形、FFT 和语谱图：
     ```bash
     python load.py
     ```
@@ -66,7 +66,7 @@ pip install librosa numpy matplotlib scipy
     ```
 
 4.  **添加噪声和滤波音频 ([`Adding Noise and Filtering.py`](Adding Noise and Filtering.py))**:
-    此脚本加载 `zrk_audio.wav`，添加噪声，将加噪后的版本保存到 `wav/audio_noisy.wav`，然后应用预定义的 IIR 和 FIR 低通滤波器。它将显示：
+    此脚本加载 `your_audio.wav`，添加噪声，将加噪后的版本保存到 `wav/audio_noisy.wav`，然后应用预定义的 IIR 和 FIR 低通滤波器。它将显示：
     *   噪声信号的波形和 FFT。
     *   IIR 滤波后信号的波形和 FFT。
     *   FIR 滤波后信号的波形和 FFT。
